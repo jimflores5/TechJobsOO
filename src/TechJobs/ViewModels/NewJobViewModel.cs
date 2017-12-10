@@ -15,8 +15,6 @@ namespace TechJobs.ViewModels
         [Display(Name = "Employer")]
         public int EmployerID { get; set; }
 
-        // TODO #3 - Include other fields needed to create a job,
-        // with correct validation attributes and display names.
         [Required(ErrorMessage = "Please select a location.")]
         [Display(Name = "Location")]
         public int LocationID { get; set; }
@@ -46,9 +44,6 @@ namespace TechJobs.ViewModels
                     Text = field.Value
                 });
             }
-
-            // TODO #4 - populate the other List<SelectListItem> 
-            // collections needed in the view
 
             foreach (Location field in jobData.Locations.ToList())
             {

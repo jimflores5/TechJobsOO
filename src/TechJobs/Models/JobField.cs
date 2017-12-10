@@ -19,6 +19,7 @@
         }
 
         // Provide a basic case-insensitive search
+        //TODO: Fix Search All function to display all jobs if Keyword box is empty.
         public bool Contains(string testValue)
         {
             return Value.ToLower().Contains(testValue.ToLower());

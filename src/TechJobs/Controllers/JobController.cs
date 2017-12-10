@@ -36,9 +36,6 @@ namespace TechJobs.Controllers
         [HttpPost]
         public IActionResult New(NewJobViewModel newJobViewModel)
         {
-            // TODO #6 - Validate the ViewModel and if valid, create a 
-            // new Job and add it to the JobData data store. Then
-            // redirect to the Job detail (Index) action/view for the new Job.
             if (ModelState.IsValid)
             {
                 foreach (Employer field in jobData.Employers.ToList())
@@ -83,8 +80,9 @@ namespace TechJobs.Controllers
                 };
 
                 jobData.Jobs.Add(newJob);
+                string newUrl = "/Job?id="+newJob.ID.ToString();
 
-                return View("Index",newJob);
+                return Redirect(newUrl);
             }
             return View(newJobViewModel);
         }
