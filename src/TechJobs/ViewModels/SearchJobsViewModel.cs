@@ -14,6 +14,7 @@ namespace TechJobs.ViewModels
         public JobFieldType Column { get; set; } = JobFieldType.All;
 
         // The search value
+        [Required(ErrorMessage ="Please enter a search term.")]
         [Display(Name = "Keyword:")]
         public string Value { get; set; } = "";
 
