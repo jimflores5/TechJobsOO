@@ -29,7 +29,11 @@ namespace TechJobs.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (jobsViewModel.Column.Equals(JobFieldType.All) || jobsViewModel.Value.Equals(""))
+                if (jobsViewModel.Column.Equals(JobFieldType.All) && jobsViewModel.Value.ToLower().Equals("all"))
+                {
+                    jobsViewModel.Jobs = jobData.Jobs;
+                }
+                else if (jobsViewModel.Column.Equals(JobFieldType.All))
                 {
                     jobsViewModel.Jobs = jobData.FindByValue(jobsViewModel.Value);
                 }
